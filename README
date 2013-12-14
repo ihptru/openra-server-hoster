@@ -1,0 +1,3 @@
+* Check if there is a new OpenRA release or playtest;
+* Automatically Fetch&Compile if it founds one;
+* Host a server, one per mod (with proper version tag) in a separate screen session
