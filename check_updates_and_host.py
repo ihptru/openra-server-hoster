@@ -26,7 +26,7 @@ def start():
         time.sleep(10800)  # wait 3 hours
 
 def check_update():
-    url = 'https://api.github.com/repos/OpenRA/OpenRA/tags'
+    url = 'https://api.github.com/repos/OpenRA/OpenRA/git/refs/tags'
     try:
         stream = data_from_url(url, None)
     except Exception as e:
@@ -64,8 +64,8 @@ def get_version(stream, version):
     result = []
     y = json.loads(stream)
     for item in y:
-        if item['name'].split('-')[0] == version:    # release or playtest
-            result = [item['name'], item['tarball_url'], item['commit']['sha'][0:7]]
+        if version in item['ref']:
+            result = [item['ref'].split('tags/')[1], 'https://github.com/OpenRA/OpenRA/tarball/'+item['ref'].split('tags/')[1], item['object']['sha'][0:7]]
             break
     return result
 
