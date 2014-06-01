@@ -66,7 +66,6 @@ def get_version(stream, version):
     for item in y:
         if version in item['ref']:
             result = [item['ref'].split('tags/')[1], 'https://github.com/OpenRA/OpenRA/tarball/'+item['ref'].split('tags/')[1], item['object']['sha'][0:7]]
-            break
     return result
 
 def flush(data):
