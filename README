@@ -4,3 +4,7 @@
 
 To Start:
 ./check_updates_and_host.py
+
+Note:
+  start and terminate several times (3), so it generates all required local data
+  to make it host servers for current versions, edit `version.txt` with lower values  
